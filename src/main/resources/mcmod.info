@@ -1,0 +1,16 @@
+[
+{
+  "modid": "growablecells",
+  "name": "Growable AE2 Cells",
+  "description": "Crops for ME Cells",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Shadows_of_Fire"],
+  "credits": "Potatoes",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
