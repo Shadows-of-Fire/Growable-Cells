@@ -12,6 +12,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         // Initialization of blocks and items typically goes here:
     	ModRegistry.init();
+    	RecipeManager.initRecipes();
     }
 
     public void init(FMLInitializationEvent e) {

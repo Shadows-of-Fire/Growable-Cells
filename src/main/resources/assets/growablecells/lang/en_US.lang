@@ -1,0 +1,8 @@
+item.growablecells.itemMESeed1k.name=1k ME Seed
+item.growablecells.itemMESeed4k.name=4k ME Seed
+item.growablecells.itemMESeed16k.name=16k ME Seed
+item.growablecells.itemMESeed.name=64k ME Seed
+tile.growablecells.crop1k.name=1k ME Crop
+tile.growablecells.crop4k.name=4k ME Crop
+tile.growablecells.crop16k.name=16k ME Crop
+tile.growablecells.crop64k.name=64k ME Crop
