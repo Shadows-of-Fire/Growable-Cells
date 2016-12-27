@@ -1,9 +1,17 @@
-package shadows.growing.bullshit;
+package shadows.ae2.growable.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import shadows.ae2.growable.common.BlockAECrops;
+import shadows.ae2.growable.common.BlockAECrops16k;
+import shadows.ae2.growable.common.BlockAECrops1k;
+import shadows.ae2.growable.common.BlockAECrops4k;
+import shadows.ae2.growable.common.ItemCropSeeds;
+import shadows.ae2.growable.common.ItemCropSeeds16k;
+import shadows.ae2.growable.common.ItemCropSeeds1k;
+import shadows.ae2.growable.common.ItemCropSeeds4k;
 
 public class ModRegistry {
 

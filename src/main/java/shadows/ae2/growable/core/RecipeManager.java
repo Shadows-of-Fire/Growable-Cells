@@ -1,4 +1,4 @@
-package shadows.growing.bullshit;
+package shadows.ae2.growable.core;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

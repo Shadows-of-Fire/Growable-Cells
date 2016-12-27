@@ -1,4 +1,4 @@
-package shadows.growing.bullshit;
+package shadows.ae2.growable.core;
 
 
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

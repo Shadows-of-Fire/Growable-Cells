@@ -1,7 +1,6 @@
-package shadows.growing.bullshit;
+package shadows.ae2.growable.common;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockCrops;
@@ -16,25 +15,27 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import shadows.ae2.growable.AE2Growable;
+import shadows.ae2.growable.core.ModRegistry;
 
-public class BlockAECrops extends BlockCrops{
-	public BlockAECrops() {
-		setUnlocalizedName(AE2Growable.MODID + ".crop64k");
-		setRegistryName("crop64k");
+public class BlockAECrops4k extends BlockCrops{
+	public BlockAECrops4k() {
+		setUnlocalizedName(AE2Growable.MODID + ".crop4k");
+		setRegistryName("crop4k");
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this), getRegistryName());
 	}
 	@Override
 	protected Item getSeed() {
-		return ModRegistry.itemMESeed;
+		return ModRegistry.itemMESeed4k;
 	}
 	@Override
 	protected Item getCrop() {
-		return Item.getByNameOrId("appliedenergistics2:storage_cell_64k");
+		return Item.getByNameOrId("appliedenergistics2:storage_cell_4k");
 	}
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state){
-	return false;
+		return false;
 	}
 	@SideOnly(Side.CLIENT)
 	public void initModel(){
@@ -54,4 +55,5 @@ public class BlockAECrops extends BlockCrops{
         
         return ret;
     }
+	
 }

@@ -1,11 +1,11 @@
-package shadows.growing.bullshit;
+package shadows.ae2.growable.core;
 
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import shadows.ae2.growable.*;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.SidedProxy;
-import shadows.growing.bullshit.*;
 
 
 public class CommonProxy {
