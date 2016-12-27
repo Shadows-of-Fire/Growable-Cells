@@ -1,38 +1,31 @@
 package shadows.ae2.growable.core;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.ae2.growable.common.BlockAECrops;
-import shadows.ae2.growable.common.BlockAECrops16k;
-import shadows.ae2.growable.common.BlockAECrops1k;
-import shadows.ae2.growable.common.BlockAECrops4k;
 import shadows.ae2.growable.common.ItemCropSeeds;
-import shadows.ae2.growable.common.ItemCropSeeds16k;
-import shadows.ae2.growable.common.ItemCropSeeds1k;
-import shadows.ae2.growable.common.ItemCropSeeds4k;
+
 
 public class ModRegistry {
 
 	public static BlockAECrops crop64k;
 	public static ItemCropSeeds itemMESeed;
-	public static ItemCropSeeds16k itemMESeed16k;
-	public static BlockAECrops16k crop16k;
-	public static ItemCropSeeds4k itemMESeed4k;
-	public static BlockAECrops4k crop4k;
-	public static ItemCropSeeds1k itemMESeed1k;
-	public static BlockAECrops1k crop1k;
+	public static ItemCropSeeds itemMESeed16k;
+	public static BlockAECrops crop16k;
+	public static ItemCropSeeds itemMESeed4k;
+	public static BlockAECrops crop4k;
+	public static ItemCropSeeds itemMESeed1k;
+	public static BlockAECrops crop1k;
 	
 	public static void init() {
-		crop64k = new BlockAECrops();
-		itemMESeed = new ItemCropSeeds();
-		crop16k = new BlockAECrops16k();
-		crop4k = new BlockAECrops4k();
-		crop1k = new BlockAECrops1k();
-		itemMESeed16k = new ItemCropSeeds16k();
-		itemMESeed4k = new ItemCropSeeds4k();
-		itemMESeed1k = new ItemCropSeeds1k();
+		crop64k = new BlockAECrops("crop64k", "storage_cell_64k");
+		itemMESeed = new ItemCropSeeds("seed64k");
+		crop16k = new BlockAECrops("crop16k", "storage_cell_16k");
+		crop4k = new BlockAECrops("crop4k", "storage_cell_4k");
+		crop1k = new BlockAECrops("crop1k", "storage_cell_1k");
+		itemMESeed16k = new ItemCropSeeds("seed16k");
+		itemMESeed4k = new ItemCropSeeds("seed4k");
+		itemMESeed1k = new ItemCropSeeds("seed1k");
 	}
 	
 	@SideOnly(Side.CLIENT)
