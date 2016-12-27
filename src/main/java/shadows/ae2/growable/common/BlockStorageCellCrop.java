@@ -19,10 +19,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.ae2.growable.AE2Growable;
 import shadows.ae2.growable.core.ConfigFile;
 
-public class BlockAECrops extends BlockCrops{
+public class BlockStorageCellCrop extends BlockCrops{
 	public String drops;
 	
-	public BlockAECrops(String regname, String dropname) {
+	public BlockStorageCellCrop(String regname, String dropname) {
 		setUnlocalizedName(AE2Growable.MODID + "." + regname);
 		setRegistryName(regname);
 		GameRegistry.register(this);
