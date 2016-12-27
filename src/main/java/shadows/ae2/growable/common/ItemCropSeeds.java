@@ -1,5 +1,6 @@
 package shadows.ae2.growable.common;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -9,11 +10,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.ae2.growable.AE2Growable;
-import shadows.ae2.growable.core.ModRegistry;
 
 public class ItemCropSeeds extends ItemSeeds{
 	public ItemCropSeeds(String regname) {
-		super(ModRegistry.crop64k, Blocks.FARMLAND);
+		super(Block.getBlockFromName("growablecells:crop" + regname.substring(4)), Blocks.FARMLAND);
 		setUnlocalizedName(AE2Growable.MODID + "." + regname);
 		setRegistryName(regname);
 		GameRegistry.register(this);

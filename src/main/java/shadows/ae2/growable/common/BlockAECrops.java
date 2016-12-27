@@ -3,6 +3,7 @@ package shadows.ae2.growable.common;
 import java.util.ArrayList;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -17,7 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.ae2.growable.AE2Growable;
 import shadows.ae2.growable.core.ConfigFile;
-import shadows.ae2.growable.core.ModRegistry;
 
 public class BlockAECrops extends BlockCrops{
 	public String drops;
@@ -55,6 +55,12 @@ public class BlockAECrops extends BlockCrops{
         if (age >= getMaxAge())
         {
         ret.add(new ItemStack(this.getCrop()));
+        if (world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:fluix_block") && ConfigFile.extraFromFluix){
+            ret.add(new ItemStack(this.getSeed()));
+        }
+        else if(world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:quartz_block") && ConfigFile.extraFromCertus){
+        	ret.add(new ItemStack(this.getCrop()));
+        }
         }
         
         return ret;

@@ -5,7 +5,9 @@ import net.minecraftforge.common.config.Property;
 
 public class ConfigFile {
 
-	public static boolean allowBonemeal = false; 
+	public static boolean allowBonemeal = false;
+	public static boolean extraFromFluix = true;
+	public static boolean extraFromCertus = true;
 
 	public static void syncConfig() { // Gets called from preInit
 	    try {
@@ -17,8 +19,18 @@ public class ConfigFile {
 	                "allowBonemeal", // Property name
 	                "false", // Default value
 	                "If crops can be bonemealed"); // Comment
+	        Property fluixProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What category will it be saved to, can be any string
+	                "extraFromFluix", // Property name
+	                "true", // Default value
+	                "If fluix blocks give extra seeds"); // Comment
+	        Property certusProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What category will it be saved to, can be any string
+	                "extraFromCertus", // Property name
+	                "true", // Default value
+	                "If certus blocks give extra cells"); // Comment
 
 	        allowBonemeal = allowBonemealProp.getBoolean(); // Get the boolean value, also set the property value to boolean
+	        extraFromFluix = fluixProp.getBoolean();
+	        extraFromCertus = certusProp.getBoolean();
 	    } catch (Exception e) {
 	        // Failed reading/writing, just continue
 	    } finally {

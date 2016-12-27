@@ -45,12 +45,6 @@
 					"cross": "growablecells:blocks/1k/7"
 				}
 			}
-		},
-		"inventory": {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "growablecells:items/seed1k"
-	}
-}
+		}
 }
 }
