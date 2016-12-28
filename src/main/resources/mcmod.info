@@ -1,8 +1,8 @@
 [
 {
   "modid": "growablecells",
-  "name": "Growable AE2 Cells",
-  "description": "Crops for ME Cells",
+  "name": "Growable Cells",
+  "description": "Crops for Storage Cells",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

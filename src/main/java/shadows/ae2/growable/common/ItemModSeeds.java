@@ -11,9 +11,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.ae2.growable.AE2Growable;
 
-public class ItemSpatialCellSeeds extends ItemSeeds{
-
-	public ItemSpatialCellSeeds(String regname) {
+public class ItemModSeeds extends ItemSeeds{
+	public ItemModSeeds(String regname) {
 		super(Block.getBlockFromName("growablecells:crop" + regname.substring(4)), Blocks.FARMLAND);
 		setUnlocalizedName(AE2Growable.MODID + "." + regname);
 		setRegistryName(regname);
@@ -26,5 +25,7 @@ public class ItemSpatialCellSeeds extends ItemSeeds{
 	public void initModel(){
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
-
+	
+	
+	
 }
