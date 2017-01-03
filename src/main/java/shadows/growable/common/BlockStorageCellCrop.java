@@ -1,4 +1,4 @@
-package shadows.ae2.growable.common;
+package shadows.growable.common;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,8 +16,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.ae2.growable.AE2Growable;
-import shadows.ae2.growable.core.ConfigFile;
+import shadows.growable.AE2Growable;
+import shadows.growable.core.ConfigFile;
 
 public class BlockStorageCellCrop extends BlockCrops{
 	public String drops;

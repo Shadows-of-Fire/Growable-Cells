@@ -1,15 +1,17 @@
-package shadows.ae2.growable.core;
+package shadows.growable.core;
 
 
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.LoaderExceptionModCrash;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.ae2.growable.common.BlockRefinedCellCrop;
-import shadows.ae2.growable.common.BlockSpatialCellCrop;
-import shadows.ae2.growable.common.BlockStorageCellCrop;
-import shadows.ae2.growable.common.ItemModSeeds;
+import shadows.growable.common.BlockRefinedCellCrop;
+import shadows.growable.common.BlockSpatialCellCrop;
+import shadows.growable.common.BlockStorageCellCrop;
+import shadows.growable.common.ItemModSeeds;
+import net.minecraftforge.fml.common.Optional;
 
 
 public class ModRegistry {
@@ -37,9 +39,8 @@ public class ModRegistry {
 	public static ItemModSeeds seedr16k;
 	public static ItemModSeeds seedr64k;
 	
-	public static void init() {
-		if (Loader.isModLoaded("appliedenergistics2"))
-		{	
+	@Optional.Method(modid="appliedenergistics2")
+	public static void initAE() {
 		crop64k = new BlockStorageCellCrop("crop64k", "storage_cell_64k");
 		seed64k = new ItemModSeeds("seed64k");
 		crop16k = new BlockStorageCellCrop("crop16k", "storage_cell_16k");
@@ -55,9 +56,9 @@ public class ModRegistry {
 		seed16c = new ItemModSeeds("seed16_cubed");
 		seed128c = new ItemModSeeds("seed128_cubed");
 		}
-		
-		if (Loader.isModLoaded("refinedstorage"))
-		{	
+	
+	@Optional.Method(modid="refinedstorage")
+	public static void initRS() {
 		cropr1k = new BlockRefinedCellCrop("cropr1k", new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_DISK, 1, 0));
 		cropr4k = new BlockRefinedCellCrop("cropr4k", new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_DISK, 1, 1));
 		cropr16k = new BlockRefinedCellCrop("cropr16k", new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_DISK, 1, 2));
@@ -66,8 +67,8 @@ public class ModRegistry {
 		seedr4k = new ItemModSeeds("seedr4k");
 		seedr16k = new ItemModSeeds("seedr16k");
 		seedr64k = new ItemModSeeds("seedr64k");
+		
 		}
-	}
 	@SideOnly(Side.CLIENT)
 	public static void initModels(){
 		if (Loader.isModLoaded("appliedenergistics2"))

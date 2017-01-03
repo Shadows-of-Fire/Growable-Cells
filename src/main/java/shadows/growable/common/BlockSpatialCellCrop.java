@@ -1,14 +1,12 @@
-package shadows.ae2.growable.common;
+package shadows.growable.common;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -18,29 +16,26 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.ae2.growable.AE2Growable;
-import shadows.ae2.growable.core.ConfigFile;
+import shadows.growable.AE2Growable;
+import shadows.growable.core.ConfigFile;
 
-public class BlockRefinedCellCrop extends BlockCrops{
-	public ItemStack drops;
-	public String regnames;
-	public BlockRefinedCellCrop(String regname, ItemStack drop){
+public class BlockSpatialCellCrop extends BlockCrops{
+public String drops;
+	
+	public BlockSpatialCellCrop(String regname) {
 		setUnlocalizedName(AE2Growable.MODID + "." + regname);
 		setRegistryName(regname);
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this), getRegistryName());
-		regnames = regname;
-		drops = drop;
+		drops = regname.substring(4);
 	}
-	
 	@Override
 	protected Item getSeed() {
-		return Item.getByNameOrId("growablecells:seed" + regnames.substring(4));
+		return Item.getByNameOrId("growablecells:seed" + drops);
 	}
-	
-	@Override @Nullable
+	@Override
 	protected Item getCrop() {
-		return null;
+		return Item.getByNameOrId("appliedenergistics2:spatial_storage_cell_" + drops); //2_cubed
 	}
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state){
@@ -59,17 +54,15 @@ public class BlockRefinedCellCrop extends BlockCrops{
 
         if (age >= getMaxAge())
         {
-        ret.add(new ItemStack(drops.getItem(), 1, drops.getMetadata()));
-        
-        if (world.getBlockState(pos.down(2)).getBlock() == Blocks.PURPUR_BLOCK && ConfigFile.extraFromPurpur){
+        ret.add(new ItemStack(this.getCrop()));
+        if (world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:fluix_block") && ConfigFile.extraFromFluix){
             ret.add(new ItemStack(this.getSeed()));
         }
-        else if(world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK && ConfigFile.extraFromQuartz){
-        	ret.add(new ItemStack(drops.getItem(), 1, drops.getMetadata()));
+        else if(world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:quartz_block") && ConfigFile.extraFromCertus){
+        	ret.add(new ItemStack(this.getCrop()));
         }
         }
         
         return ret;
     }
 }
-

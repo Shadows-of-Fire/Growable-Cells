@@ -1,4 +1,4 @@
-package shadows.ae2.growable.common;
+package shadows.growable.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -9,7 +9,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.ae2.growable.AE2Growable;
+import shadows.growable.AE2Growable;
 
 public class ItemModSeeds extends ItemSeeds{
 	public ItemModSeeds(String regname) {

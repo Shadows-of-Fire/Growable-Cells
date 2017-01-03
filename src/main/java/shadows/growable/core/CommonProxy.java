@@ -1,7 +1,8 @@
-package shadows.ae2.growable.core;
+package shadows.growable.core;
 
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
@@ -12,8 +13,11 @@ public class CommonProxy {
         // Initialization of blocks and items typically goes here:
     	config = new Configuration(e.getSuggestedConfigurationFile());
     	ConfigFile.syncConfig();
-    	ModRegistry.init();
-    	RecipeManager.initRecipes();
+		if (Loader.isModLoaded("appliedenergistics2")){ ModRegistry.initAE(); RecipeManager.initAE(); }
+		if (!Loader.isModLoaded("appliedenergistics2")) System.out.println("Growable Cells: Applied Energistics 2 not loaded");
+		if (Loader.isModLoaded("refinedstorage")){ ModRegistry.initRS(); RecipeManager.initRS(); }
+		if (!Loader.isModLoaded("refinedstorage")) System.out.println("Growable Cells: Refined Storage not loaded.");
+    	
     	
     }
 

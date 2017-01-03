@@ -1,4 +1,4 @@
-package shadows.ae2.growable.core;
+package shadows.growable.core;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -42,7 +42,7 @@ public class ConfigFile {
 	        extraFromFluix = fluixProp.getBoolean();
 	        extraFromCertus = certusProp.getBoolean();
 	        extraFromPurpur = purpurProp.getBoolean();
-	        extraFromQuartz = purpurProp.getBoolean();
+	        extraFromQuartz = quartzProp.getBoolean();
 	    } catch (Exception e) {
 	        // Failed reading/writing, just continue
 	    } finally {
