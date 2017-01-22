@@ -5,6 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.raoulvdberge.refinedstorage.apiimpl.storage.StorageItemNBT;
+
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.growable.AE2Growable;
 import shadows.growable.core.ConfigFile;
-
+	
 public class BlockRefinedCellCrop extends BlockCrops{
 	public ItemStack drops;
 	public String regnames;
@@ -32,6 +34,12 @@ public class BlockRefinedCellCrop extends BlockCrops{
 		regnames = regname;
 		drops = drop;
 	}
+	
+	public ItemStack dropCell(ItemStack stack){
+		StorageItemNBT.createStackWithNBT(stack);
+		return stack;
+	}
+			
 	
 	@Override
 	protected Item getSeed() {
@@ -59,13 +67,13 @@ public class BlockRefinedCellCrop extends BlockCrops{
 
         if (age >= getMaxAge())
         {
-        ret.add(new ItemStack(drops.getItem(), 1, drops.getMetadata()));
+        	ret.add(dropCell(drops));
         
         if (world.getBlockState(pos.down(2)).getBlock() == Blocks.PURPUR_BLOCK && ConfigFile.extraFromPurpur){
             ret.add(new ItemStack(this.getSeed()));
         }
         else if(world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK && ConfigFile.extraFromQuartz){
-        	ret.add(new ItemStack(drops.getItem(), 1, drops.getMetadata()));
+        	ret.add(dropCell(drops));
         }
         }
         
