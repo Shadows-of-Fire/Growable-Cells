@@ -19,9 +19,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.growable.AE2Growable;
 import shadows.growable.core.ConfigFile;
 
-public class BlockStorageCellCrop extends BlockCrops{
+public class BlockStorageCellCrop extends BlockCrops {
 	public String drops;
-	
+
 	public BlockStorageCellCrop(String regname, String dropname) {
 		setUnlocalizedName(AE2Growable.MODID + "." + regname);
 		setRegistryName(regname);
@@ -29,40 +29,46 @@ public class BlockStorageCellCrop extends BlockCrops{
 		GameRegistry.register(new ItemBlock(this), getRegistryName());
 		drops = dropname;
 	}
+
 	@Override
 	protected Item getSeed() {
 		return Item.getByNameOrId("growablecells:seed" + drops.substring(13));
 	}
+
 	@Override
 	protected Item getCrop() {
-		return Item.getByNameOrId("appliedenergistics2:" + drops); //storage_cell_64k
+		return Item.getByNameOrId("appliedenergistics2:" + drops); // storage_cell_64k
 	}
-	@Override
-	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state){
-	return ConfigFile.allowBonemeal;
-	}
-	@SideOnly(Side.CLIENT)
-	public void initModel(){
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-	}
-    @Override
-    public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
-        java.util.List<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this.getSeed()));
-        int age = getAge(state);
 
-        if (age >= getMaxAge())
-        {
-        ret.add(new ItemStack(this.getCrop()));
-        if (world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:fluix_block") && ConfigFile.extraFromFluix){
-            ret.add(new ItemStack(this.getSeed()));
-        }
-        else if(world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:quartz_block") && ConfigFile.extraFromCertus){
-        	ret.add(new ItemStack(this.getCrop()));
-        }
-        }
-        
-        return ret;
-    }
+	@Override
+	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		return ConfigFile.allowBonemeal;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
+				new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+
+	@Override
+	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state,
+			int fortune) {
+		java.util.List<ItemStack> ret = new ArrayList<ItemStack>();
+		ret.add(new ItemStack(this.getSeed()));
+		int age = getAge(state);
+
+		if (age >= getMaxAge()) {
+			ret.add(new ItemStack(this.getCrop()));
+			if (world.getBlockState(pos.down(2)).getBlock() == Block.getBlockFromName("appliedenergistics2:fluix_block")
+					&& ConfigFile.extraFromFluix) {
+				ret.add(new ItemStack(this.getSeed()));
+			} else if (world.getBlockState(pos.down(2)).getBlock() == Block
+					.getBlockFromName("appliedenergistics2:quartz_block") && ConfigFile.extraFromCertus) {
+				ret.add(new ItemStack(this.getCrop()));
+			}
+		}
+
+		return ret;
+	}
 }
