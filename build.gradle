@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
 
-version = "0.3.3"
+version = "1.0.0"
 archivesBaseName = "Growable Cells"
 
 sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
@@ -51,7 +51,7 @@ dependencies {
     deobfCompile "mezz.jei:jei_1.11:4.0.4.199:api"
     runtime "mezz.jei:jei_1.11:4.0.4.199"
     deobfCompile "net.darkhax.tesla:Tesla:1.11-1.3.0.51"
-	deobfCompile  'refinedstorage:refinedstorage:1.3.5+'
+	deobfCompile  'refinedstorage:refinedstorage:1.4.1+'
 }
 
 

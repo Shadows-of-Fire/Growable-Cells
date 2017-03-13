@@ -4,7 +4,7 @@
   "name": "Growable Cells",
   "description": "Crops for Storage Cells",
   "version": "${version}",
-  "mcversion": "${mcversion}",
+  "mcversion": "1.10.2;1.11.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["Shadows_of_Fire"],

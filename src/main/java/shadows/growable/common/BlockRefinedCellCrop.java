@@ -5,7 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.raoulvdberge.refinedstorage.apiimpl.storage.StorageItemNBT;
+import com.raoulvdberge.refinedstorage.api.storage.StorageDiskType;
+import com.raoulvdberge.refinedstorage.apiimpl.API;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
@@ -37,8 +38,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 	}
 
 	public ItemStack dropCell(ItemStack stack) {
-		StorageItemNBT.createStackWithNBT(stack);
-		return stack;
+		return API.instance().getDefaultStorageDiskBehavior().initDisk(StorageDiskType.ITEMS, stack);
 	}
 
 	@Override
