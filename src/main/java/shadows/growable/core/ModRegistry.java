@@ -37,14 +37,14 @@ public class ModRegistry {
 
 	@Optional.Method(modid = "appliedenergistics2")
 	public static void initAE() {
-		crop64k = new BlockStorageCellCrop("crop64k", "storage_cell_64k");
-		seed64k = new ItemModSeeds("seed64k");
-		crop16k = new BlockStorageCellCrop("crop16k", "storage_cell_16k");
-		crop4k = new BlockStorageCellCrop("crop4k", "storage_cell_4k");
 		crop1k = new BlockStorageCellCrop("crop1k", "storage_cell_1k");
-		seed16k = new ItemModSeeds("seed16k");
-		seed4k = new ItemModSeeds("seed4k");
+		crop4k = new BlockStorageCellCrop("crop4k", "storage_cell_4k");
+		crop16k = new BlockStorageCellCrop("crop16k", "storage_cell_16k");
+		crop64k = new BlockStorageCellCrop("crop64k", "storage_cell_64k");
 		seed1k = new ItemModSeeds("seed1k");
+		seed4k = new ItemModSeeds("seed4k");
+		seed16k = new ItemModSeeds("seed16k");
+		seed64k = new ItemModSeeds("seed64k");
 		crop2c = new BlockSpatialCellCrop("crop2_cubed");
 		crop16c = new BlockSpatialCellCrop("crop16_cubed");
 		crop128c = new BlockSpatialCellCrop("crop128_cubed");
