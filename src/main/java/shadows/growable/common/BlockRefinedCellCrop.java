@@ -101,7 +101,9 @@ public class BlockRefinedCellCrop extends BlockCrops {
 				ret.add(dropCell(drops));
 			}
 		}
-
+		for (ItemStack stack : ret) {
+			if(stack.isEmpty()) stack.setCount(1);
+		}
 		return ret;
 	}
 }
