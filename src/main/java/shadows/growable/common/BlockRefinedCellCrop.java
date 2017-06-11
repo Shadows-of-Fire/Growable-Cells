@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.raoulvdberge.refinedstorage.api.storage.StorageDiskType;
-import com.raoulvdberge.refinedstorage.apiimpl.API;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
@@ -21,6 +20,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.API;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -88,7 +88,8 @@ public class BlockRefinedCellCrop extends BlockCrops {
 	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state,
 			int fortune) {
 		java.util.List<ItemStack> ret = new ArrayList<ItemStack>();
-		if(fortune != 25) ret.add(new ItemStack(this.getSeed()));
+		if (fortune != 25)
+			ret.add(new ItemStack(this.getSeed()));
 		int age = getAge(state);
 
 		if (age >= getMaxAge()) {
@@ -102,7 +103,8 @@ public class BlockRefinedCellCrop extends BlockCrops {
 			}
 		}
 		for (ItemStack stack : ret) {
-			if(stack.isEmpty()) stack.setCount(1);
+			if (stack.isEmpty())
+				stack.setCount(1);
 		}
 		return ret;
 	}

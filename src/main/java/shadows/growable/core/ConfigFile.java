@@ -18,72 +18,72 @@ public class ConfigFile {
 
 			// Read props from config
 			Property allowBonemealProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-																								// category
-																								// will
-																								// it
-																								// be
-																								// saved
-																								// to,
-																								// can
-																								// be
-																								// any
-																								// string
+					// category
+					// will
+					// it
+					// be
+					// saved
+					// to,
+					// can
+					// be
+					// any
+					// string
 					"allowBonemeal", // Property name
 					"false", // Default value
 					"If crops can be bonemealed"); // Comment
 			Property fluixProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-																						// category
-																						// will
-																						// it
-																						// be
-																						// saved
-																						// to,
-																						// can
-																						// be
-																						// any
-																						// string
+					// category
+					// will
+					// it
+					// be
+					// saved
+					// to,
+					// can
+					// be
+					// any
+					// string
 					"extraFromFluix", // Property name
 					"true", // Default value
 					"If fluix blocks give extra seeds"); // Comment
 			Property certusProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-																							// category
-																							// will
-																							// it
-																							// be
-																							// saved
-																							// to,
-																							// can
-																							// be
-																							// any
-																							// string
+					// category
+					// will
+					// it
+					// be
+					// saved
+					// to,
+					// can
+					// be
+					// any
+					// string
 					"extraFromCertus", // Property name
 					"true", // Default value
 					"If certus blocks give extra cells"); // Comment
 			Property purpurProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-																							// category
-																							// will
-																							// it
-																							// be
-																							// saved
-																							// to,
-																							// can
-																							// be
-																							// any
-																							// string
+					// category
+					// will
+					// it
+					// be
+					// saved
+					// to,
+					// can
+					// be
+					// any
+					// string
 					"extraFromPurpur (RS)", // Property name
 					"true", // Default value
 					"If purpur blocks give extra seeds"); // Comment
 			Property quartzProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-																							// category
-																							// will
-																							// it
-																							// be
-																							// saved
-																							// to,
-																							// can
-																							// be
-																							// any
-																							// string
+					// category
+					// will
+					// it
+					// be
+					// saved
+					// to,
+					// can
+					// be
+					// any
+					// string
 					"extraFromQuartz (RS)", // Property name
 					"true", // Default value
 					"If quartz blocks give extra cells"); // Comment
