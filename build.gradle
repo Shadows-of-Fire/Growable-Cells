@@ -18,9 +18,9 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12-14.21.0.2321"
+    version = "1.12-14.21.0.2331"
     runDir = "run"
-    mappings = "snapshot_20161220"
+    mappings = "snapshot_20170615"
 }
 
 repositories {
@@ -40,6 +40,10 @@ repositories {
 
 dependencies {
     compile files('libs/')
+	deobfCompile "mezz.jei:jei_1.12:4.6.0.61:api"
+    runtime "mezz.jei:jei_1.12:4.6.0.61"		
+    deobfCompile "net.darkhax.tesla:Tesla-1.12:1.0.59"		
+  	deobfCompile  "refinedstorage:refinedstorage:1.5.1+"
 }
 
 
@@ -48,19 +52,12 @@ dependencies {
 
 processResources
 {
-    // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
-        // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
-    // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

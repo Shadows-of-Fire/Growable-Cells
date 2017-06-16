@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.raoulvdberge.refinedstorage.api.storage.StorageDiskType;
+import com.raoulvdberge.refinedstorage.apiimpl.API;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
@@ -20,11 +21,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.API;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.growable.AE2Growable;
+import shadows.growable.GrowableCells;
 import shadows.growable.core.ConfigFile;
 
 public class BlockRefinedCellCrop extends BlockCrops {
@@ -32,7 +32,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 	public String regnames;
 
 	public BlockRefinedCellCrop(String regname, ItemStack drop) {
-		setUnlocalizedName(AE2Growable.MODID + "." + regname);
+		setUnlocalizedName(GrowableCells.MODID + "." + regname);
 		setRegistryName(regname);
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this), getRegistryName());

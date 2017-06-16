@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import shadows.growable.core.CommonProxy;
 
-@Mod(modid = AE2Growable.MODID, name = AE2Growable.MODNAME, version = AE2Growable.VERSION, dependencies = "after:refinedstorage;after:appliedenergistics2", acceptedMinecraftVersions = "1.11.2")
-public class AE2Growable {
+@Mod(modid = GrowableCells.MODID, name = GrowableCells.MODNAME, version = GrowableCells.VERSION, dependencies = "after:refinedstorage;after:appliedenergistics2", acceptedMinecraftVersions = "1.11.2")
+public class GrowableCells {
 	public static final String MODID = "growablecells";
 	public static final String MODNAME = "Growable Cells";
 	public static final String VERSION = "1.0.2";
@@ -18,7 +18,7 @@ public class AE2Growable {
 	public static CommonProxy proxy;
 
 	@Mod.Instance
-	public static AE2Growable instance;
+	public static GrowableCells instance;
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) throws NullPointerException {

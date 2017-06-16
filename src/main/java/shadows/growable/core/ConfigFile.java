@@ -17,81 +17,28 @@ public class ConfigFile {
 			CommonProxy.config.load();
 
 			// Read props from config
-			Property allowBonemealProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-					// category
-					// will
-					// it
-					// be
-					// saved
-					// to,
-					// can
-					// be
-					// any
-					// string
-					"allowBonemeal", // Property name
-					"false", // Default value
-					"If crops can be bonemealed"); // Comment
-			Property fluixProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-					// category
-					// will
-					// it
-					// be
-					// saved
-					// to,
-					// can
-					// be
-					// any
-					// string
-					"extraFromFluix", // Property name
-					"true", // Default value
-					"If fluix blocks give extra seeds"); // Comment
-			Property certusProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-					// category
-					// will
-					// it
-					// be
-					// saved
-					// to,
-					// can
-					// be
-					// any
-					// string
-					"extraFromCertus", // Property name
-					"true", // Default value
-					"If certus blocks give extra cells"); // Comment
-			Property purpurProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-					// category
-					// will
-					// it
-					// be
-					// saved
-					// to,
-					// can
-					// be
-					// any
-					// string
+			Property allowBonemealProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, 
+					"allowBonemeal",
+					"false",
+					"If crops can be bonemealed");
+			Property fluixProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL,
+					"extraFromFluix",
+					"true",
+					"If fluix blocks give extra seeds");
+			Property certusProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL,
+					"extraFromCertus",
+					"true",
+					"If certus blocks give extra cells");
+			Property purpurProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL,
 					"extraFromPurpur (RS)", // Property name
 					"true", // Default value
-					"If purpur blocks give extra seeds"); // Comment
-			Property quartzProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL, // What
-					// category
-					// will
-					// it
-					// be
-					// saved
-					// to,
-					// can
-					// be
-					// any
-					// string
+					"If purpur blocks give extra seeds");
+			Property quartzProp = CommonProxy.config.get(Configuration.CATEGORY_GENERAL,
 					"extraFromQuartz (RS)", // Property name
 					"true", // Default value
 					"If quartz blocks give extra cells"); // Comment
 
-			allowBonemeal = allowBonemealProp.getBoolean(); // Get the boolean
-															// value, also set
-															// the property
-															// value to boolean
+			allowBonemeal = allowBonemealProp.getBoolean();
 			extraFromFluix = fluixProp.getBoolean();
 			extraFromCertus = certusProp.getBoolean();
 			extraFromPurpur = purpurProp.getBoolean();

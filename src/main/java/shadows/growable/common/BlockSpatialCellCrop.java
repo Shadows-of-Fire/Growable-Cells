@@ -19,14 +19,14 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import shadows.growable.AE2Growable;
+import shadows.growable.GrowableCells;
 import shadows.growable.core.ConfigFile;
 
 public class BlockSpatialCellCrop extends BlockCrops {
 	public String drops;
 
 	public BlockSpatialCellCrop(String regname) {
-		setUnlocalizedName(AE2Growable.MODID + "." + regname);
+		setUnlocalizedName(GrowableCells.MODID + "." + regname);
 		setRegistryName(regname);
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this), getRegistryName());
