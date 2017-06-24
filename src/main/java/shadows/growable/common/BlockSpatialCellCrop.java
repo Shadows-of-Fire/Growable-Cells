@@ -16,11 +16,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.growable.GrowableCells;
 import shadows.growable.core.ConfigFile;
+import shadows.growable.core.ModRegistry;
 
 public class BlockSpatialCellCrop extends BlockCrops {
 	public String drops;
@@ -28,8 +28,8 @@ public class BlockSpatialCellCrop extends BlockCrops {
 	public BlockSpatialCellCrop(String regname) {
 		setUnlocalizedName(GrowableCells.MODID + "." + regname);
 		setRegistryName(regname);
-		GameRegistry.register(this);
-		GameRegistry.register(new ItemBlock(this), getRegistryName());
+		ModRegistry.BLOCKS.add(this);
+		ModRegistry.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
 		drops = regname.substring(4);
 	}
 

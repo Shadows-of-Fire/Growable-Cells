@@ -6,17 +6,17 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.growable.GrowableCells;
+import shadows.growable.core.ModRegistry;
 
 public class ItemModSeeds extends ItemSeeds {
 	public ItemModSeeds(String regname) {
 		super(Block.getBlockFromName("growablecells:crop" + regname.substring(4)), Blocks.FARMLAND);
 		setUnlocalizedName(GrowableCells.MODID + "." + regname);
 		setRegistryName(regname);
-		GameRegistry.register(this);
+		ModRegistry.ITEMS.add(this);
 		this.setCreativeTab(CreativeTabs.MATERIALS);
 	}
 

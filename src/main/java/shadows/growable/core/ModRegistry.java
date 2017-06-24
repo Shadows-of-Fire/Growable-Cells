@@ -1,8 +1,16 @@
 package shadows.growable.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shadows.growable.common.BlockRefinedCellCrop;
@@ -34,6 +42,10 @@ public class ModRegistry {
 	public static ItemModSeeds seedr4k;
 	public static ItemModSeeds seedr16k;
 	public static ItemModSeeds seedr64k;
+
+	public static final List<Block> BLOCKS = new ArrayList<Block>();
+	public static final List<Item> ITEMS = new ArrayList<Item>();
+	public static final List<IRecipe> RECIPES = RecipeHelper.RECIPES;
 
 	@Optional.Method(modid = "appliedenergistics2")
 	public static void initAE() {
@@ -99,6 +111,21 @@ public class ModRegistry {
 			seedr16k.initModel();
 			seedr64k.initModel();
 		}
+	}
+
+	@SubscribeEvent
+	public void onItemRegistry(RegistryEvent.Register<Item> e) {
+		e.getRegistry().registerAll(ITEMS.toArray(new Item[0]));
+	}
+
+	@SubscribeEvent
+	public void onBlockRegistry(RegistryEvent.Register<Block> e) {
+		e.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
+	}
+
+	@SubscribeEvent
+	public void onRecipeRegistry(RegistryEvent.Register<IRecipe> e) {
+		e.getRegistry().registerAll(RECIPES.toArray(new IRecipe[0]));
 	}
 
 }

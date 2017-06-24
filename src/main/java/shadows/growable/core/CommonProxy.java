@@ -1,5 +1,6 @@
 package shadows.growable.core;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -25,7 +26,7 @@ public class CommonProxy {
 		}
 		if (!Loader.isModLoaded("refinedstorage"))
 			System.out.println("Growable Cells: Refined Storage not loaded.");
-
+		MinecraftForge.EVENT_BUS.register(new ModRegistry());
 	}
 
 	public void init(FMLInitializationEvent e) {

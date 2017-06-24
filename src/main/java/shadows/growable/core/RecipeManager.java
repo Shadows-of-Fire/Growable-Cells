@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;
 
+@SuppressWarnings("deprecation")
 public class RecipeManager {
 
 	@Optional.Method(modid = "appliedenergistics2")

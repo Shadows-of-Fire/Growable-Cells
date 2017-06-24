@@ -12,7 +12,7 @@ import shadows.growable.core.CommonProxy;
 public class GrowableCells {
 	public static final String MODID = "growablecells";
 	public static final String MODNAME = "Growable Cells";
-	public static final String VERSION = "1.0.2";
+	public static final String VERSION = "1.1.0";
 
 	@SidedProxy(clientSide = "shadows.growable.core.ClientProxy", serverSide = "shadows.growable.core.CommonProxy")
 	public static CommonProxy proxy;
@@ -23,7 +23,7 @@ public class GrowableCells {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) throws NullPointerException {
 		if (!Loader.isModLoaded("appliedenergistics2") && !Loader.isModLoaded("refinedstorage"))
-			throw new NullPointerException(
+			throw new IllegalStateException(
 					"URGENT: Growable Cells has found neither AE2 or RS. The mod WILL NOT work.");
 		proxy.preInit(event);
 	}
