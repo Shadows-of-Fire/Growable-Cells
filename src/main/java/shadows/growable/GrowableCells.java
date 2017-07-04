@@ -23,8 +23,7 @@ public class GrowableCells {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) throws NullPointerException {
 		if (!Loader.isModLoaded("appliedenergistics2") && !Loader.isModLoaded("refinedstorage"))
-			throw new IllegalStateException(
-					"URGENT: Growable Cells has found neither AE2 or RS. The mod WILL NOT work.");
+			throw new IllegalStateException("URGENT: Growable Cells has found neither AE2 or RS. The mod WILL NOT work.");
 		proxy.preInit(event);
 	}
 

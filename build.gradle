@@ -48,7 +48,7 @@ dependencies {
 	deobfCompile "mcp.mobius.waila:Hwyla:1.8.18-B32_1.12:api"
 	runtime "mcp.mobius.waila:Hwyla:1.8.18-B32_1.12"
 	deobfCompile "net.darkhax.tesla:Tesla-1.12:1.0.59"		
-  	deobfCompile  "refinedstorage:refinedstorage:1.5.3+"
+  	deobfCompile  "refinedstorage:refinedstorage:1.5.6+"
 }
 
 
