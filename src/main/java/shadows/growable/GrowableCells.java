@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import shadows.growable.core.CommonProxy;
 
-@Mod(modid = GrowableCells.MODID, name = GrowableCells.MODNAME, version = GrowableCells.VERSION, dependencies = "after:refinedstorage;after:appliedenergistics2", acceptedMinecraftVersions = "1.11.2")
+@Mod(modid = GrowableCells.MODID, name = GrowableCells.MODNAME, version = GrowableCells.VERSION, dependencies = "after:refinedstorage;after:appliedenergistics2;after:waila")
 public class GrowableCells {
 	public static final String MODID = "growablecells";
 	public static final String MODNAME = "Growable Cells";

@@ -40,8 +40,8 @@ public class BlockRefinedCellCrop extends BlockCrops {
 		drops = drop;
 	}
 
-	public ItemStack dropCell(ItemStack stack) {
-		return API.instance().getDefaultStorageDiskBehavior().initDisk(StorageDiskType.ITEMS, stack);
+	public final ItemStack dropCell(ItemStack stack) {
+		return API.instance().getDefaultStorageDiskBehavior().initDisk(StorageDiskType.ITEMS, stack).copy();
 	}
 
 	@Override
@@ -61,8 +61,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-			EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (this.isMaxAge(state)) {
 			world.setBlockState(pos, this.getDefaultState());
 			for (ItemStack stack : this.getDrops(world, pos, state, 25)) {
@@ -80,13 +79,11 @@ public class BlockRefinedCellCrop extends BlockCrops {
 
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
-				new ModelResourceLocation(getRegistryName(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
 
 	@Override
-	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state,
-			int fortune) {
+	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		java.util.List<ItemStack> ret = new ArrayList<ItemStack>();
 		if (fortune != 25)
 			ret.add(new ItemStack(this.getSeed()));
@@ -97,8 +94,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 
 			if (world.getBlockState(pos.down(2)).getBlock() == Blocks.PURPUR_BLOCK && ConfigFile.extraFromPurpur) {
 				ret.add(new ItemStack(this.getSeed()));
-			} else if (world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK
-					&& ConfigFile.extraFromQuartz) {
+			} else if (world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK && ConfigFile.extraFromQuartz) {
 				ret.add(dropCell(drops));
 			}
 		}

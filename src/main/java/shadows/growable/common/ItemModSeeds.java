@@ -12,8 +12,8 @@ import shadows.growable.GrowableCells;
 import shadows.growable.core.ModRegistry;
 
 public class ItemModSeeds extends ItemSeeds {
-	public ItemModSeeds(String regname) {
-		super(Block.getBlockFromName("growablecells:crop" + regname.substring(4)), Blocks.FARMLAND);
+	public ItemModSeeds(Block crop, String regname) {
+		super(crop, Blocks.FARMLAND);
 		setUnlocalizedName(GrowableCells.MODID + "." + regname);
 		setRegistryName(regname);
 		ModRegistry.ITEMS.add(this);
@@ -24,5 +24,4 @@ public class ItemModSeeds extends ItemSeeds {
 	public void initModel() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
-
 }
