@@ -125,6 +125,7 @@ public class ModRegistry {
 		e.getRegistry().registerAll(RECIPES.toArray(new IRecipe[0]));
 	}
 
+	/*
 	@Optional.Method(modid = "refinedstorage")
 	@SubscribeEvent
 	public void onItemClick(RightClickItem e) {
@@ -138,6 +139,6 @@ public class ModRegistry {
 					Block.spawnAsEntity(e.getWorld(), e.getPos(), new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_PART, 1, s.getMetadata()));
 			}
 		}
-	}
+	}*/
 
 }
