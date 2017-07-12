@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickItem;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -122,23 +121,9 @@ public class ModRegistry {
 
 	@SubscribeEvent
 	public void onRecipeRegistry(RegistryEvent.Register<IRecipe> e) {
+		if (Loader.isModLoaded("appliedenergistics2")) RecipeManager.initAE();
+		if (Loader.isModLoaded("refinedstorage")) RecipeManager.initRS();
 		e.getRegistry().registerAll(RECIPES.toArray(new IRecipe[0]));
 	}
-
-	/*
-	@Optional.Method(modid = "refinedstorage")
-	@SubscribeEvent
-	public void onItemClick(RightClickItem e) {
-		ItemStack s = e.getItemStack();
-		if (s.getItem() == com.raoulvdberge.refinedstorage.RSItems.STORAGE_DISK) {
-			if (e.getEntityPlayer().isSneaking() && com.raoulvdberge.refinedstorage.apiimpl.storage.StorageDiskItem.getStored(s.getTagCompound()) == 0) {
-				s.shrink(1);
-				if (!e.getEntityPlayer().addItemStackToInventory(new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_HOUSING)))
-					Block.spawnAsEntity(e.getWorld(), e.getPos(), new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_HOUSING));
-				if (!e.getEntityPlayer().addItemStackToInventory(new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_PART, 1, s.getMetadata())))
-					Block.spawnAsEntity(e.getWorld(), e.getPos(), new ItemStack(com.raoulvdberge.refinedstorage.RSItems.STORAGE_PART, 1, s.getMetadata()));
-			}
-		}
-	}*/
 
 }

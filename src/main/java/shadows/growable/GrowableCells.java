@@ -12,7 +12,7 @@ import shadows.growable.core.CommonProxy;
 public class GrowableCells {
 	public static final String MODID = "growablecells";
 	public static final String MODNAME = "Growable Cells";
-	public static final String VERSION = "2.3.0";
+	public static final String VERSION = "2.4.0";
 
 	@SidedProxy(clientSide = "shadows.growable.core.ClientProxy", serverSide = "shadows.growable.core.CommonProxy")
 	public static CommonProxy proxy;
