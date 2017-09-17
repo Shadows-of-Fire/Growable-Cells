@@ -85,8 +85,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 	@Override
 	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		java.util.List<ItemStack> ret = new ArrayList<ItemStack>();
-		if (fortune != 25)
-			ret.add(new ItemStack(this.getSeed()));
+		if (fortune != 25) ret.add(new ItemStack(this.getSeed()));
 		int age = getAge(state);
 
 		if (age >= getMaxAge()) {
@@ -99,8 +98,7 @@ public class BlockRefinedCellCrop extends BlockCrops {
 			}
 		}
 		for (ItemStack stack : ret) {
-			if (stack.isEmpty())
-				stack.setCount(1);
+			if (stack.isEmpty()) stack.setCount(1);
 		}
 		return ret;
 	}

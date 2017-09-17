@@ -14,7 +14,7 @@ public class CommonProxy {
 		// Initialization of blocks and items typically goes here:
 		config = new Configuration(e.getSuggestedConfigurationFile());
 		ConfigFile.syncConfig();
-		
+
 		if (Loader.isModLoaded("appliedenergistics2")) {
 			ModRegistry.initAE();
 		}
@@ -23,9 +23,8 @@ public class CommonProxy {
 		if (Loader.isModLoaded("refinedstorage")) {
 			ModRegistry.initRS();
 		}
-		if (Loader.isModLoaded("refinedstorage"))
-			System.out.println("Growable Cells: Refined Storage loaded.");
-		
+		if (Loader.isModLoaded("refinedstorage")) System.out.println("Growable Cells: Refined Storage loaded.");
+
 		MinecraftForge.EVENT_BUS.register(new ModRegistry());
 	}
 

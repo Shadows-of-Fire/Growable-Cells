@@ -36,8 +36,7 @@ public class ConfigFile {
 			// Failed reading/writing, just continue
 		} finally {
 			// Save props to config IF config changed
-			if (CommonProxy.config.hasChanged())
-				CommonProxy.config.save();
+			if (CommonProxy.config.hasChanged()) CommonProxy.config.save();
 		}
 	}
 
