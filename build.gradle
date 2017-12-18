@@ -9,35 +9,29 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.12-2.4.0"
+version = "1.12.2-3.0.0"
 archivesBaseName = "Growable Cells"
 
-sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }
 
 minecraft {
-    version = "1.12.1-14.22.1.2481"
+    version = "1.12.2-14.23.1.2566"
     runDir = "run"
-    mappings = "snapshot_20170821"
+    mappings = "snapshot_20171215"
 }
 
 repositories {
     maven {
         url "http://dvs1.progwml6.com/files/maven"
     }
-    maven {
-        url "http://maven.epoxide.xyz"
-    }
-    maven {
-        url "http://maven.amadornes.com/"
-    }
 	maven {
 		url "http://tehnut.info/maven"
 	}
 	maven {
-		url "http://maven.ic2.player.to"
+		url "http://files.minecraftforge.net/maven"
 	}
 	maven {
 		url  "https://dl.bintray.com/raoulvdberge/dev/"
@@ -45,10 +39,10 @@ repositories {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.12.1:+"
-	deobfCompile "mcp.mobius.waila:Hwyla:+"
-	deobfCompile "net.darkhax.tesla:Tesla-1.12:+"		
-  	deobfCompile  "refinedstorage:refinedstorage:1.5.9+"
+	deobfCompile "mezz.jei:jei_1.12.2:+"
+	deobfCompile "mcp.mobius.waila:Hwyla:+"	
+  	deobfCompile "refinedstorage:refinedstorage:1.5.+"
+	deobfCompile "appeng:appliedenergistics2:rv5-stable-3"
 }
 
 

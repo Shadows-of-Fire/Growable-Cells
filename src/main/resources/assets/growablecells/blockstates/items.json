@@ -1,0 +1,66 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"item": {
+			"refined_seed_1k": {
+				"textures": {
+					"layer0": "growablecells:items/refined_seed_1k"
+				}
+			},
+			"refined_seed_4k": {
+				"textures": {
+					"layer0": "growablecells:items/refined_seed_4k"
+				}
+			},
+			"refined_seed_16k": {
+				"textures": {
+					"layer0": "growablecells:items/refined_seed_16k"
+				}
+			},
+			"refined_seed_64k": {
+				"textures": {
+					"layer0": "growablecells:items/refined_seed_64k"
+				}
+			},
+			"seed_1k": {
+				"textures": {
+					"layer0": "growablecells:items/seed_1k"
+				}
+			},
+			"seed_2_cubed": {
+				"textures": {
+					"layer0": "growablecells:items/seed_2_cubed"
+				}
+			},
+			"seed_4k": {
+				"textures": {
+					"layer0": "growablecells:items/seed_4k"
+				}
+			},
+			"seed_16_cubed": {
+				"textures": {
+					"layer0": "growablecells:items/seed_16_cubed"
+				}
+			},
+			"seed_16k": {
+				"textures": {
+					"layer0": "growablecells:items/seed_16k"
+				}
+			},
+			"seed_64k": {
+				"textures": {
+					"layer0": "growablecells:items/seed_64k"
+				}
+			},
+			"seed_128_cubed": {
+				"textures": {
+					"layer0": "growablecells:items/seed_128_cubed"
+				}
+			}
+		}
+	}
+}

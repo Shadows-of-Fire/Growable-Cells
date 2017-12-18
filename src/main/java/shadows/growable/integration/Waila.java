@@ -1,4 +1,4 @@
-package shadows.growable.core;
+package shadows.growable.integration;
 
 import java.util.List;
 
@@ -12,20 +12,23 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import shadows.growable.common.BlockRefinedCellCrop;
+import shadows.growable.block.BlockAppliedCellCrop;
+import shadows.growable.block.BlockRefinedCellCrop;
+import shadows.growable.block.IGrowableCell;
 
 public class Waila {
 
-	public static void callbackRegister(IWailaRegistrar registrar) {
-		registrar.registerStackProvider(new Provider(), BlockRefinedCellCrop.class);
+	public static void callbackRegister(IWailaRegistrar reg) {
+		reg.registerStackProvider(new Provider(), BlockRefinedCellCrop.class);
+		reg.registerStackProvider(new Provider(), BlockAppliedCellCrop.class);
 	}
 
 	public static class Provider implements IWailaDataProvider {
 
 		@Override
 		public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config) {
-			BlockRefinedCellCrop cellCrop = (BlockRefinedCellCrop) accessor.getBlock();
-			return cellCrop.dropCell(cellCrop.drops);
+			IGrowableCell cellCrop = (IGrowableCell) accessor.getBlock();
+			return cellCrop.getCell();
 		}
 
 		@Override
