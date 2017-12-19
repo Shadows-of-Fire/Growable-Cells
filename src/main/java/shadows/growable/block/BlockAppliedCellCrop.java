@@ -33,16 +33,16 @@ public class BlockAppliedCellCrop extends BlockCrops implements IGrowableCell {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!this.isMaxAge(state)) return false;
-		
+
 		world.setBlockState(pos, this.getDefaultState());
-		
+
 		spawnAsEntity(world, pos, getCell());
 		if (ConfigFile.extraFromFluix && AEApi.instance().definitions().blocks().fluixBlock().isSameAs(world, pos.down(2))) {
 			spawnAsEntity(world, pos, new ItemStack(getSeed()));
 		} else if (ConfigFile.extraFromCertus && AEApi.instance().definitions().blocks().quartzBlock().isSameAs(world, pos.down(2))) {
 			spawnAsEntity(world, pos, getCell());
 		}
-		
+
 		return true;
 	}
 
@@ -65,7 +65,7 @@ public class BlockAppliedCellCrop extends BlockCrops implements IGrowableCell {
 			}
 		}
 	}
-	
+
 	@Override
 	protected Item getSeed() {
 		return seed;
@@ -73,10 +73,10 @@ public class BlockAppliedCellCrop extends BlockCrops implements IGrowableCell {
 
 	@Override
 	public void setSeed(Item seed) {
-		if(this.seed != null) throw new UnsupportedOperationException("Seed has already been set for " + getRegistryName());
+		if (this.seed != null) throw new UnsupportedOperationException("Seed has already been set for " + getRegistryName());
 		this.seed = seed;
 	}
-	
+
 	@Override
 	public ItemStack getCell() {
 		return drop.genStack();

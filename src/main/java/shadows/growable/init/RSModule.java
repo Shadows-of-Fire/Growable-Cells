@@ -46,7 +46,7 @@ public class RSModule {
 	}
 
 	private static class IngredientRSDisk extends Ingredient {
-		
+
 		private final ItemStack stack;
 
 		public IngredientRSDisk(int meta) {
@@ -57,10 +57,10 @@ public class RSModule {
 		public boolean apply(ItemStack s) {
 			return s.isItemEqual(stack) && StorageDiskItem.getStored(s.getTagCompound()) == 0;
 		}
-		
+
 		@Override
 		public ItemStack[] getMatchingStacks() {
-			return new ItemStack[] {stack};
+			return new ItemStack[] { stack };
 		}
 
 	}

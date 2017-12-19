@@ -36,9 +36,9 @@ public class GrowableCells {
 	public static Configuration config;
 
 	public static Logger logger;
-	
+
 	public static final RegistryInformation INFO = new RegistryInformation(MODID, null);
-	
+
 	public static final RecipeHelper HELPER = new RecipeHelper(MODID, MODNAME, INFO.getRecipeList());
 
 	@EventHandler
@@ -65,7 +65,7 @@ public class GrowableCells {
 
 		if (!loaded) throw new IllegalStateException("Growable Cells has found neither AE2 or RS. At least one is required.");
 	}
-	
+
 	@SubscribeEvent
 	public void onItemRegistry(Register<Item> e) {
 		e.getRegistry().registerAll(INFO.getItemList().toArray(new Item[0]));
@@ -78,14 +78,11 @@ public class GrowableCells {
 
 	@SubscribeEvent
 	public void onRecipeRegistry(Register<IRecipe> e) {
-		if (Loader.isModLoaded(AE2ID)) 
-			AEModule.loadRecipes();
-		
-		if (Loader.isModLoaded(RSID)) 
-			RSModule.loadRecipes();
-		
+		if (Loader.isModLoaded(AE2ID)) AEModule.loadRecipes();
+
+		if (Loader.isModLoaded(RSID)) RSModule.loadRecipes();
+
 		e.getRegistry().registerAll(INFO.getRecipeList().toArray(new IRecipe[0]));
 	}
-	
 
 }

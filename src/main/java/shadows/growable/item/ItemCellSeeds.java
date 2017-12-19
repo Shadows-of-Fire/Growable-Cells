@@ -12,9 +12,9 @@ import shadows.placebo.client.IHasModel;
 import shadows.placebo.interfaces.IPostInitUpdate;
 
 public class ItemCellSeeds<T extends Block & IGrowableCell> extends ItemSeeds implements IHasModel, IPostInitUpdate {
-	
+
 	private final T crop;
-	
+
 	public ItemCellSeeds(T crop, String name) {
 		super(crop, Blocks.FARMLAND);
 		setRegistryName(GrowableCells.MODID, name);
@@ -24,7 +24,7 @@ public class ItemCellSeeds<T extends Block & IGrowableCell> extends ItemSeeds im
 		GrowableCells.INFO.getItemList().add(this);
 		Placebo.UPDATES.add(this);
 	}
-	
+
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
 		crop.setSeed(this);

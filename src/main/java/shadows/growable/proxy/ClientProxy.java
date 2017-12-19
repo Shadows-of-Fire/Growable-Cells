@@ -17,8 +17,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		MinecraftForge.EVENT_BUS.register(this);
-		if (Loader.isModLoaded("waila"))
-			FMLInterModComms.sendMessage("waila", "register", Waila.class.getName() + ".callbackRegister");
+		if (Loader.isModLoaded("waila")) FMLInterModComms.sendMessage("waila", "register", Waila.class.getName() + ".callbackRegister");
 	}
 
 	@SubscribeEvent
