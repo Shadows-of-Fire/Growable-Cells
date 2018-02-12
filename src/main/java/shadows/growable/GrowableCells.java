@@ -25,7 +25,7 @@ import shadows.placebo.util.RecipeHelper;
 public class GrowableCells {
 	public static final String MODID = "growablecells";
 	public static final String MODNAME = "Growable Cells";
-	public static final String VERSION = "3.0.0";
+	public static final String VERSION = "3.0.1";
 	public static final String DEPS = "required-after:placebo@[1.2.0,);after:refinedstorage;after:appliedenergistics2;after:waila";
 	public static final String AE2ID = "appliedenergistics2";
 	public static final String RSID = "refinedstorage";
