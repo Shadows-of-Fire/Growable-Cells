@@ -25,7 +25,7 @@ public class BlockAppliedCellCrop extends BlockCrops implements IGrowableCell {
 
 	public BlockAppliedCellCrop(String name, Item drop) {
 		setRegistryName(GrowableCells.MODID, name);
-		setUnlocalizedName(GrowableCells.MODID + "." + name);
+		setTranslationKey(GrowableCells.MODID + "." + name);
 		GrowableCells.INFO.getBlockList().add(this);
 		this.drop = new StackPrimer(drop);
 	}

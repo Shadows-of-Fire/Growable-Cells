@@ -1,14 +1,10 @@
 package shadows.growable.init;
 
 import com.raoulvdberge.refinedstorage.RSItems;
-import com.raoulvdberge.refinedstorage.api.storage.StorageDiskType;
-import com.raoulvdberge.refinedstorage.apiimpl.API;
-import com.raoulvdberge.refinedstorage.apiimpl.storage.StorageDiskItem;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
 import shadows.growable.GrowableCells;
 import shadows.growable.block.BlockRefinedCellCrop;
 import shadows.growable.item.ItemCellSeeds;
@@ -39,29 +35,5 @@ public class RSModule {
 		GrowableCells.HELPER.addShaped(REFINED_SEED_4K, 3, 3, c4k, c4k, c4k, c4k, REFINED_SEED_1K, c4k, c4k, c4k, c4k);
 		GrowableCells.HELPER.addShaped(REFINED_SEED_16K, 3, 3, c16k, c16k, c16k, c16k, REFINED_SEED_4K, c16k, c16k, c16k, c16k);
 		GrowableCells.HELPER.addShaped(REFINED_SEED_64K, 3, 3, c64k, c64k, c64k, c64k, REFINED_SEED_16K, c64k, c64k, c64k, c64k);
-
-		for (int i = 0; i < 4; i++)
-			GrowableCells.HELPER.addShapeless(new ItemStack(RSItems.STORAGE_PART, 1, i), new IngredientRSDisk(i));
-		RSItems.STORAGE_DISK.setContainerItem(RSItems.STORAGE_HOUSING);
-	}
-
-	private static class IngredientRSDisk extends Ingredient {
-
-		private final ItemStack stack;
-
-		public IngredientRSDisk(int meta) {
-			this.stack = API.instance().getDefaultStorageDiskBehavior().initDisk(StorageDiskType.ITEMS, new ItemStack(RSItems.STORAGE_DISK, 1, meta));
-		}
-
-		@Override
-		public boolean apply(ItemStack s) {
-			return s.isItemEqual(stack) && StorageDiskItem.getStored(s.getTagCompound()) == 0;
-		}
-
-		@Override
-		public ItemStack[] getMatchingStacks() {
-			return new ItemStack[] { stack };
-		}
-
 	}
 }

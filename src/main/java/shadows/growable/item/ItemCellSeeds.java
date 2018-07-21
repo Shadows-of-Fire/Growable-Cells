@@ -18,7 +18,7 @@ public class ItemCellSeeds<T extends Block & IGrowableCell> extends ItemSeeds im
 	public ItemCellSeeds(T crop, String name) {
 		super(crop, Blocks.FARMLAND);
 		setRegistryName(GrowableCells.MODID, name);
-		setUnlocalizedName(GrowableCells.MODID + "." + name);
+		setTranslationKey(GrowableCells.MODID + "." + name);
 		setCreativeTab(CreativeTabs.MATERIALS);
 		this.crop = crop;
 		GrowableCells.INFO.getItemList().add(this);

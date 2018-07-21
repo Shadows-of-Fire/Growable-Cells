@@ -2,9 +2,6 @@ package shadows.growable.block;
 
 import java.util.Random;
 
-import com.raoulvdberge.refinedstorage.api.storage.StorageDiskType;
-import com.raoulvdberge.refinedstorage.apiimpl.API;
-
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,7 +25,7 @@ public class BlockRefinedCellCrop extends BlockCrops implements IGrowableCell {
 
 	public BlockRefinedCellCrop(String name, StackPrimer drop) {
 		setRegistryName(GrowableCells.MODID, name);
-		setUnlocalizedName(GrowableCells.MODID + "." + name);
+		setTranslationKey(GrowableCells.MODID + "." + name);
 		GrowableCells.INFO.getBlockList().add(this);
 		this.drop = drop;
 	}
@@ -43,11 +40,11 @@ public class BlockRefinedCellCrop extends BlockCrops implements IGrowableCell {
 		if (!this.isMaxAge(state)) return false;
 
 		world.setBlockState(pos, this.getDefaultState());
-		spawnAsEntity(world, pos, drop.genStack());
+		spawnAsEntity(world, pos, tryUpdate(getCell(), world));
 		if (ConfigFile.extraFromPurpur && world.getBlockState(pos.down(2)).getBlock() == Blocks.PURPUR_BLOCK) {
 			spawnAsEntity(world, pos, new ItemStack(getSeed()));
 		} else if (ConfigFile.extraFromQuartz && world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK) {
-			spawnAsEntity(world, pos, drop.genStack());
+			spawnAsEntity(world, pos, tryUpdate(getCell(), world));
 		}
 
 		return true;
@@ -63,13 +60,19 @@ public class BlockRefinedCellCrop extends BlockCrops implements IGrowableCell {
 		drops.add(new ItemStack(getSeed()));
 
 		if (isMaxAge(state)) {
-			drops.add(getCell());
+			drops.add(tryUpdate(getCell(), world));
 			if (ConfigFile.extraFromPurpur && world.getBlockState(pos.down(2)).getBlock() == Blocks.PURPUR_BLOCK) {
 				drops.add(new ItemStack(getSeed()));
 			} else if (ConfigFile.extraFromQuartz && world.getBlockState(pos.down(2)).getBlock() == Blocks.QUARTZ_BLOCK) {
-				drops.add(getCell());
+				drops.add(tryUpdate(getCell(), world));
 			}
 		}
+	}
+
+	private ItemStack tryUpdate(ItemStack s, IBlockAccess world) {
+		if (world instanceof World) 
+			s.getItem().onUpdate(s, (World) world, null, 0, false);
+		return s;
 	}
 
 	@Override
@@ -85,6 +88,6 @@ public class BlockRefinedCellCrop extends BlockCrops implements IGrowableCell {
 
 	@Override
 	public ItemStack getCell() {
-		return API.instance().getDefaultStorageDiskBehavior().initDisk(StorageDiskType.ITEMS, drop.genStack());
+		return drop.genStack();
 	}
 }
